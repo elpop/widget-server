@@ -1,0 +1,146 @@
+body { background-color: rgba(0, 0, 0, 0);
+                  margin: 0px auto;
+                  overflow: hidden; }
+
+#Scoreboard.Home {
+         width: 170px;
+         hight: 200px;
+         text-align: center;
+         margin: 0px;
+         position: fixed;
+         left: 198px;
+         top: 77px;
+         font-family:arial;
+         font-size:72pt;
+	     font-weight: bold; }
+#Scoreboard.Visitor {
+         width: 170px;
+         hight: 200px;
+         text-align: center;
+         margin: 0px;
+         position: fixed;
+         left: 403px;
+         top: 77px;
+         font-family:arial;
+         font-size:72pt;
+	     font-weight: bold; }
+
+#Logo.Home {
+    display: block;
+    margin: 0 auto;
+    position: fixed;
+    margin-top: -89px; /* Negative half of height. */
+    margin-left: -89px; /* Negative half of width. */
+    left: 100px;
+    top: 137px; }
+#Logo.Visitor {
+    display: block;
+    margin: 0 auto;
+    position: fixed;
+    margin-top: -89px; /* Negative half of height. */
+    margin-left: -89px; /* Negative half of width. */
+    left: 676px;
+    top: 137px; }
+
+#Match.Name {
+//    border-style: solid;
+         color: #ffffff;
+         text-align: center;
+         margin: 0px;
+         width: 420px;
+         hight: 100px;
+         position: fixed;
+         left: 180px;
+         top: 12px;
+         font-family:arial;
+         font-size:18pt;
+	     font-weight: bold; }
+    
+#Name.Home {
+         width: 170px;
+         hight: 100px;
+         margin: 0px;
+         position: fixed;
+         text-align: center;
+         left: 59px;
+         top: 235px;
+         margin-left: -47px; /* Negative half of width. */
+         font-family:arial;
+         font-size:16pt;
+	     font-weight: bold; }
+#Name.Visitor {
+         width: 170px;
+         hight: 100px;
+         margin: 0px;
+         position: fixed;
+         text-align: center;
+         left: 589px;
+         top: 235px; 
+         font-family:arial;
+         font-size:16pt;
+	     font-weight: bold; }
+IMG.scoreboard {
+    display: block;
+    width: 178px; 
+    height: 178px; 
+    margin-left: auto;
+    margin-right: auto; }
+    
+#SquareConteiner {
+    align-content: center;
+}
+
+#SquareData { border: solid 0px #000000;
+                   position: relative;
+                   vertical-align: top; 
+                   padding: 1px;
+                   margin: 3px;
+                   width: 450px;
+                   height: auto;
+                   display: inline-block;}
+
+#Logo.Multi {
+    margin: 0 auto;
+    position: absolute;
+    margin-top: -90px; /* Negative half of height. */
+    margin-left: -90px; /* Negative half of width. */
+    left: 100px;
+    top: 98px; }
+
+#Name.Multi {
+         width: 170px;
+         hight: 100px;
+         margin: 0 auto;
+         position: absolute;
+         text-align: center;
+         left: 276px;
+         top: 16px;
+         margin-left: -47px; /* Negative half of width. */
+         font-family:arial;
+         font-size:14pt;
+	     font-weight: bold; }
+
+#Scoreboard.Multi {
+         width: 170px;
+         hight: 200px;
+         text-align: center;
+         margin: 0px;
+         position: absolute;
+         left: 230px;
+         top: 47px;
+         font-family:arial;
+         font-size:72pt;
+	     font-weight: bold; }
+
+#Match.Multi {
+         color: #ffffff;
+         text-align: center;
+         margin: 0px;
+         width: 420px;
+         hight: 100px;
+         position: absolute;
+         left: 15px;
+         top: 12px;
+         font-family:arial;
+         font-size:18pt;
+	     font-weight: bold; }
