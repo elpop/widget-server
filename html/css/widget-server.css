@@ -180,7 +180,14 @@ textarea.req { background-color: #F9ECD5;
 #RoundCornerTitle { border-radius: 10px ;
                     -moz-border-radius: 10px ;
                     -webkit-border-radius: 10px ;
+                    font-family:arial;
+                    font-size:11pt;
+                    font-weight: bold;
+                    text-align: center;
+                    width: 350px;
+                    height: 15px;
                     padding: 5px;
+                    color: #ffffff;
                     background-color: #636A74; }
 #RoundCornerData { border: solid 0px #000000;
                    position: relative;
@@ -216,8 +223,9 @@ textarea.req { background-color: #F9ECD5;
                    vertical-align: top; 
                    padding: 1px;
                    margin: 3px;
-                   width: 750px;
-                   height: auto;
+                   width: 350px;
+                   height: 100px;
+                   padding: 5px;
                    display: inline-block;}
 #Submit { border-radius: 15px ;
                border: 0px solid #000000;
