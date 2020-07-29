@@ -35,11 +35,11 @@
          
       Open the Terminal application and put:
          
-         xcode-select --install
+         ```xcode-select --install```
             
       If are already instaled you see this message:
          
-         xcode-select: error: command line tools are already installed, use __Software Update__ to install updates
+         ```xcode-select: error: command line tools are already installed, use Software Update to install updates```
             
       If are not previously installed, the process ask your admin passsword and proceed the installation.
    
@@ -51,7 +51,6 @@
          
    3) Enter in the directory and copy the configurations files and customize
       
-
          cd widget-server
          sudo cp etc/widget-server.conf /etc/.
          sudo cp etc/apache2/widget-server.conf /etc/apache2/extra/.
@@ -65,7 +64,6 @@
             
          You see something like this:
          
-
             ##
             # Host Database
             #
