@@ -1,22 +1,22 @@
-#Widget Server#
+# Widget Server
 
-##Author##
+## Author
 
    Fernando Romo (pop@cofradia.org)
 
-##License##
+## License
      
     GNU GENERAL PUBLIC LICENSE Version 3
     https://www.gnu.org/licenses/gpl-3.0.en.html
     See LICENSE.txt
     
-##Abstract##
+## Abstract
 
    Apache-server to offer database based widgets to OBS, Ecamm Live or other video streaming tool
    
    Tested with OBS Studio 25.0.8 (Mac OS and Linux) and Ecamm Live 3.5.8 (Mac OS).
 
-##Description##
+## Description
 
    This is a basic Web Serve to offer diferent types of Widgets using data store in a database.
    
@@ -25,9 +25,9 @@
    The info to display is stored in a Postgresql Data base (https://www.postgresql.org), could be another
    database like MariaDB, but i prefer Postgresql.
    
-##Install and configuration##
+## Install and configuration
    
-###Mac OS###
+### Mac OS
    
    1) You need the git program and another utilities, are available with the
       Xcode Command Line Tools, I sugests install Xcode from the Apple App Store,
@@ -190,7 +190,7 @@
          The name of certificates must match with the definitions on __SSLCertificateFile__ and __SSLCertificateKeyFile__ on the apache config file.
          
 
-To-do
+## To-do
 
    - Documentation
 
