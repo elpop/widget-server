@@ -27,51 +27,52 @@ Description
    
 Install and configuration
    
-    Mac OS 
+Mac OS 
    
-      1) You need the git program and another utilities, are available with the Xcode Command Line Tools, I sugests install Xcode
-         from the Apple App Store, then check if you have the command line tools
+   1) You need the git program and another utilities, are available with the
+      Xcode Command Line Tools, I sugests install Xcode from the Apple App Store,
+      then check if you have the command line tools
          
-         Open the Terminal application and put:
+      Open the Terminal application and put:
          
-            xcode-select --install
+         xcode-select --install
             
-         If are already instaled you see this message:
+      If are already instaled you see this message:
          
-            xcode-select: error: command line tools are already installed, use "Software Update" to install updates
+         xcode-select: error: command line tools are already installed, use "Software Update" to install updates
             
-         If are not previously installed, the process ask your admin passsword and proceed the installation.
+      If are not previously installed, the process ask your admin passsword and proceed the installation.
    
-      2) download the project repository to your disk in your prefered path
+   2) download the project repository to your disk in your prefered path
       
-         git clone https://github.com/elpop/widget-server.git
+          git clone https://github.com/elpop/widget-server.git
          
-         When the clone process end, you see a new directory called "widget-server"
+      When the clone process end, you see a new directory called "widget-server"
          
-      3) Enter in the directory and copy the configurations files and customize
+   3) Enter in the directory and copy the configurations files and customize
       
          cd widget-server
          sudo cp etc/widget-server.conf /etc/.
          sudo cp etc/apache2/widget-server.conf /etc/apache2/extra/.
          
-      4) Customize the configuration files
+   4) Customize the configuration files
       
-         a) edit the widget-server config file
+      a) edit the widget-server config file
          
-                sudo vim /etc/widget-server.conf
+            sudo vim /etc/widget-server.conf
             
-            The /etc/widget-server.conf  contains the parameters of the service:
+         The /etc/widget-server.conf  contains the parameters of the service:
    
-               # Widget Server Configuration File
-               [db_pg]
-               name = "dbi:Pg:dbname=Widgets;host=127.0.0.1"
-               user = "dba"
-               pass = "cacahuamilpa"
-        
-               [timer]
-               dbping    = 600
+            # Widget Server Configuration File
+            [db_pg]
+            name = "dbi:Pg:dbname=Widgets;host=127.0.0.1"
+            user = "dba"
+            pass = "cacahuamilpa"
+     
+            [timer]
+            dbping    = 600
 
-            The file is sefl explanatory. only put the name of the database replacing "Widgets" for any name you want to use.
+         The file is sefl explanatory. only put the name of the database replacing "Widgets" for any name you want to use.
     
 To-do
 
