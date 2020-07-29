@@ -51,9 +51,9 @@
          
    3) Enter in the directory and copy the configurations files and customize
       
-         ```cd widget-server
+         ```cd widget-server```
          sudo cp etc/widget-server.conf /etc/.
-         sudo cp etc/apache2/widget-server.conf /etc/apache2/extra/.```
+         sudo cp etc/apache2/widget-server.conf /etc/apache2/extra/.
          
    4) Customize the configuration files
    
