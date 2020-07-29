@@ -94,64 +94,77 @@ Mac OS
          The file is sefl explanatory. only put the name of the database replacing "Widgets" for any name you want to use.
          
       c) edit the apache web server configuration file
-      
-            sudo /etc/apache2/extra/widget-server.conf
-            
-         You see the configuration almost duplicate, this is because we use port 80 for OBS (don't like ssl auto signed certs) and the port 443 for Ecamm (don't like plain http conections).
+
+         a) Here is where the things start to be more difficult, you need to know the exactly path where you clone directory are. is easy whit this command:
          
-            #<VirtualHost *:80>
-            #        ServerName widget
-            #        ServerAlias widget
-            #        Redirect permanent / https://widget/
-            #</VirtualHost>
+               pwd
+         
+            and you see somthing like
+         
+               /Volumes/Pop-Data/pop/Devel/widget-server
             
-            <VirtualHost *:80>
-                ServerName widget
-                ServerAlias widget
-                DocumentRoot "/Volumes/Pop-Data/pop/Devel/widget-server/html"
-                ErrorLog "/private/var/log/apache2/widget-server-error_log"
-                CustomLog "/private/var/log/apache2/widget-server-access_log" common
+            or you path. Is important to copy this to procced the next step
             
-                ServerAdmin pop@cofradia.org
-                ScriptAlias /bin/ /Volumes/Pop-Data/pop/Devel/widget-server/cgi-bin/
-                ServerPath /Volumes/Pop-Data/pop/Devel/widget-server/html
-                SetEnv CONF_FILE /etc/widget-server.conf
-                # AddDefaultCharset UTF-8
-                AddDefaultCharset on
-                <Directory /Volumes/Pop-Data/pop/Devel/widget-server/ >
-                    AddHandler cgi-script .cgi .pl
-                    Options Indexes FollowSymLinks
-                    Require all granted
-                </Directory>
-            </VirtualHost>
+         b) Edit the apache file
+      
+               sudo /etc/apache2/extra/widget-server.conf
+               
+            You see the configuration almost duplicate, this is because we use port 80 for OBS (don't like ssl auto signed certs) and the port 443 for Ecamm (don't like plain http conections).
             
-            <VirtualHost *:443>
-                ServerName widget
-                ServerAlias widget
-                DocumentRoot "/Volumes/Pop-Data/pop/Devel/widget-server/html"
-                ErrorLog "/private/var/log/apache2/widget-server-error_log"
-                CustomLog "/private/var/log/apache2/widget-server-access_log" common
-            
-                SSLEngine on
-                SSLCipherSuite ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP:+eNULL
-                SSLCertificateFile /etc/apache2/ssl/widget.crt
-                SSLCertificateKeyFile /etc/apache2/ssl/widget.key
-            
-                ServerAdmin pop@cofradia.org
-                ScriptAlias /bin/ /Volumes/Pop-Data/pop/Devel/widget-server/cgi-bin/
-                ServerPath /Volumes/Pop-Data/pop/Devel/widget-server/html
-                SetEnv CONF_FILE /etc/widget-server.conf
-                # AddDefaultCharset UTF-8
-                AddDefaultCharset on
-                <Directory /Volumes/Pop-Data/pop/Devel/widget-server/ >
-                    AddHandler cgi-script .cgi .pl
-                    Options Indexes FollowSymLinks
-                    Require all granted
-                </Directory>
-            </VirtualHost>
+               #<VirtualHost *:80>
+               #        ServerName widget
+               #        ServerAlias widget
+               #        Redirect permanent / https://widget/
+               #</VirtualHost>
+               
+               <VirtualHost *:80>
+                   ServerName widget
+                   ServerAlias widget
+                   DocumentRoot "/Volumes/Pop-Data/pop/Devel/widget-server/html"
+                   ErrorLog "/private/var/log/apache2/widget-server-error_log"
+                   CustomLog "/private/var/log/apache2/widget-server-access_log" common
+               
+                   ServerAdmin pop@cofradia.org
+                   ScriptAlias /bin/ /Volumes/Pop-Data/pop/Devel/widget-server/cgi-bin/
+                   ServerPath /Volumes/Pop-Data/pop/Devel/widget-server/html
+                   SetEnv CONF_FILE /etc/widget-server.conf
+                   # AddDefaultCharset UTF-8
+                   AddDefaultCharset on
+                   <Directory /Volumes/Pop-Data/pop/Devel/widget-server/ >
+                       AddHandler cgi-script .cgi .pl
+                       Options Indexes FollowSymLinks
+                       Require all granted
+                   </Directory>
+               </VirtualHost>
+               
+               <VirtualHost *:443>
+                   ServerName widget
+                   ServerAlias widget
+                   DocumentRoot "/Volumes/Pop-Data/pop/Devel/widget-server/html"
+                   ErrorLog "/private/var/log/apache2/widget-server-error_log"
+                   CustomLog "/private/var/log/apache2/widget-server-access_log" common
+               
+                   SSLEngine on
+                   SSLCipherSuite ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP:+eNULL
+                   SSLCertificateFile /etc/apache2/ssl/widget.crt
+                   SSLCertificateKeyFile /etc/apache2/ssl/widget.key
+               
+                   ServerAdmin pop@cofradia.org
+                   ScriptAlias /bin/ /Volumes/Pop-Data/pop/Devel/widget-server/cgi-bin/
+                   ServerPath /Volumes/Pop-Data/pop/Devel/widget-server/html
+                   SetEnv CONF_FILE /etc/widget-server.conf
+                   # AddDefaultCharset UTF-8
+                   AddDefaultCharset on
+                   <Directory /Volumes/Pop-Data/pop/Devel/widget-server/ >
+                       AddHandler cgi-script .cgi .pl
+                       Options Indexes FollowSymLinks
+                       Require all granted
+                   </Directory>
+               </VirtualHost>
 
 
-    
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout widget.key -out widget.crt    
+
 To-do
 
    - Documentation
