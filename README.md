@@ -95,75 +95,98 @@ Mac OS
          
       c) edit the apache web server configuration file
 
-         a) Here is where the things start to be more difficult, you need to know the exactly path where you clone directory are. is easy whit this command:
+         Here is where the things start to be more difficult, you need to know the exactly path where you clone directory are. is easy whit this command:
          
-               pwd
+            pwd
          
-            and you see somthing like
+         and you see somthing like
          
-               /Volumes/Pop-Data/pop/Devel/widget-server
+            /Volumes/Pop-Data/pop/Devel/widget-server
             
-            or you path. Is important to copy this to procced the next step
+         or you path. Is important to copy this to procced the next step
             
-         b) Edit the apache file
+         Edit the apache file
       
-               sudo /etc/apache2/extra/widget-server.conf
+           sudo /etc/apache2/extra/widget-server.conf
                
-            You see the configuration almost duplicate, this is because we use port 80 for OBS (don't like ssl auto signed certs) and the port 443 for Ecamm (don't like plain http conections).
+         You see the configuration almost duplicate, this is because we use port 80 for OBS (don't like ssl auto signed certs) and the port 443 for Ecamm (don't like plain http conections).
             
-               #<VirtualHost *:80>
-               #        ServerName widget
-               #        ServerAlias widget
-               #        Redirect permanent / https://widget/
-               #</VirtualHost>
-               
-               <VirtualHost *:80>
-                   ServerName widget
-                   ServerAlias widget
-                   DocumentRoot "/Volumes/Pop-Data/pop/Devel/widget-server/html"
-                   ErrorLog "/private/var/log/apache2/widget-server-error_log"
-                   CustomLog "/private/var/log/apache2/widget-server-access_log" common
-               
-                   ServerAdmin pop@cofradia.org
-                   ScriptAlias /bin/ /Volumes/Pop-Data/pop/Devel/widget-server/cgi-bin/
-                   ServerPath /Volumes/Pop-Data/pop/Devel/widget-server/html
-                   SetEnv CONF_FILE /etc/widget-server.conf
-                   # AddDefaultCharset UTF-8
-                   AddDefaultCharset on
-                   <Directory /Volumes/Pop-Data/pop/Devel/widget-server/ >
-                       AddHandler cgi-script .cgi .pl
-                       Options Indexes FollowSymLinks
-                       Require all granted
-                   </Directory>
-               </VirtualHost>
-               
-               <VirtualHost *:443>
-                   ServerName widget
-                   ServerAlias widget
-                   DocumentRoot "/Volumes/Pop-Data/pop/Devel/widget-server/html"
-                   ErrorLog "/private/var/log/apache2/widget-server-error_log"
-                   CustomLog "/private/var/log/apache2/widget-server-access_log" common
-               
-                   SSLEngine on
-                   SSLCipherSuite ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP:+eNULL
-                   SSLCertificateFile /etc/apache2/ssl/widget.crt
-                   SSLCertificateKeyFile /etc/apache2/ssl/widget.key
-               
-                   ServerAdmin pop@cofradia.org
-                   ScriptAlias /bin/ /Volumes/Pop-Data/pop/Devel/widget-server/cgi-bin/
-                   ServerPath /Volumes/Pop-Data/pop/Devel/widget-server/html
-                   SetEnv CONF_FILE /etc/widget-server.conf
-                   # AddDefaultCharset UTF-8
-                   AddDefaultCharset on
-                   <Directory /Volumes/Pop-Data/pop/Devel/widget-server/ >
-                       AddHandler cgi-script .cgi .pl
-                       Options Indexes FollowSymLinks
-                       Require all granted
-                   </Directory>
-               </VirtualHost>
+            #<VirtualHost *:80>
+            #        ServerName widget
+            #        ServerAlias widget
+            #        Redirect permanent / https://widget/
+            #</VirtualHost>
+            
+            <VirtualHost *:80>
+                ServerName widget
+                ServerAlias widget
+                DocumentRoot "/Volumes/Pop-Data/pop/Devel/widget-server/html"
+                ErrorLog "/private/var/log/apache2/widget-server-error_log"
+                CustomLog "/private/var/log/apache2/widget-server-access_log" common
+            
+                ServerAdmin pop@cofradia.org
+                ScriptAlias /bin/ /Volumes/Pop-Data/pop/Devel/widget-server/cgi-bin/
+                ServerPath /Volumes/Pop-Data/pop/Devel/widget-server/html
+                SetEnv CONF_FILE /etc/widget-server.conf
+                # AddDefaultCharset UTF-8
+                AddDefaultCharset on
+                <Directory /Volumes/Pop-Data/pop/Devel/widget-server/ >
+                    AddHandler cgi-script .cgi .pl
+                    Options Indexes FollowSymLinks
+                    Require all granted
+                </Directory>
+            </VirtualHost>
+            
+            <VirtualHost *:443>
+                ServerName widget
+                ServerAlias widget
+                DocumentRoot "/Volumes/Pop-Data/pop/Devel/widget-server/html"
+                ErrorLog "/private/var/log/apache2/widget-server-error_log"
+                CustomLog "/private/var/log/apache2/widget-server-access_log" common
+            
+                SSLEngine on
+                SSLCipherSuite ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP:+eNULL
+                SSLCertificateFile /etc/apache2/ssl/widget.crt
+                SSLCertificateKeyFile /etc/apache2/ssl/widget.key
+            
+                ServerAdmin pop@cofradia.org
+                ScriptAlias /bin/ /Volumes/Pop-Data/pop/Devel/widget-server/cgi-bin/
+                ServerPath /Volumes/Pop-Data/pop/Devel/widget-server/html
+                SetEnv CONF_FILE /etc/widget-server.conf
+                # AddDefaultCharset UTF-8
+                AddDefaultCharset on
+                <Directory /Volumes/Pop-Data/pop/Devel/widget-server/ >
+                    AddHandler cgi-script .cgi .pl
+                    Options Indexes FollowSymLinks
+                    Require all granted
+                </Directory>
+            </VirtualHost>
 
+         You need to replace Th path on the "DocumentRoot", "ScriptAlias", "ServerPath" and "Directory" arguments with the path saved.
+         
+         For example, if your path is "/Users/joe/widget-server" you replace the arguments like this
+         
+            DocumentRoot "/Users/joe/widget-server/html"
+            ScriptAlias /bin/ /Users/joe//widget-server/cgi-bin/
+            ServerPath /Users/joe/widget-server/html
+            <Directory /Users/joe/widget-server/ >
+         
+         The arguments
+         
+            ServerName widget
+            ServerAlias widget
 
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout widget.key -out widget.crt    
+         Can be the name you want, but need to match with your definition in /etc/hosts.
+         
+         Now if you note the definition of the port 443, we need to have a SSL certificate to work with Ecamm Live, OBS only accet valid SSL certificates emited by a CA, thas why use the port (80).
+         
+         To generate a self signed SSL certificate we need to create a directory and the certificates:
+         
+            sudo mkdir /etc/apache2/ssl
+            sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/apache2/ssl/widget.key -out /etc/apache2/ssl/widget.crt    
+
+         The name of certificates must match with the definitions on "SSLCertificateFile" and"SSLCertificateKeyFile" on the apache config file.
+         
 
 To-do
 
