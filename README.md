@@ -1,22 +1,22 @@
-Widget Server
+#Widget Server
 
-Author
+##Author
 
    Fernando Romo (pop@cofradia.org)
 
-License
+##License
      
     GNU GENERAL PUBLIC LICENSE Version 3
     https://www.gnu.org/licenses/gpl-3.0.en.html
     See LICENSE.txt
     
-Abstract
+##Abstract
 
    Apache-server to offer database based widgets to OBS, Ecamm Live or other video streaming tool
    
    Tested with OBS Studio 25.0.8 (Mac OS and Linux) and Ecamm Live 3.5.8 (Mac OS).
 
-Description
+##Description
 
    This is a basic Web Serve to offer diferent types of Widgets using data store in a database.
    
@@ -25,9 +25,9 @@ Description
    The info to display is stored in a Postgresql Data base (https://www.postgresql.org), could be another
    database like MariaDB, but i prefer Postgresql.
    
-Install and configuration
+##Install and configuration
    
-Mac OS 
+###Mac OS 
    
    1) You need the git program and another utilities, are available with the
       Xcode Command Line Tools, I sugests install Xcode from the Apple App Store,
@@ -47,7 +47,7 @@ Mac OS
       
           git clone https://github.com/elpop/widget-server.git
          
-      When the clone process end, you see a new directory called "widget-server"
+      When the clone process end, you see a new directory called "__widget-server__"
          
    3) Enter in the directory and copy the configurations files and customize
       
@@ -74,7 +74,7 @@ Mac OS
             255.255.255.255	broadcasthost
             ::1             localhost
             
-         yoy see the line with "127.0.0.1	localhost" you need to append the name of your apache virtual host name, in this case "widget"
+         yoy see the line with "127.0.0.1	localhost" you need to append the name of your apache virtual host name, in this case "__widget__"
       
       b) edit the widget-server config file
          
@@ -91,7 +91,7 @@ Mac OS
             [timer]
             dbping    = 600
 
-         The file is sefl explanatory. only put the name of the database replacing "Widgets" for any name you want to use.
+         The file is sefl explanatory. only put the name of the database replacing "__Widgets__" for any name you want to use.
          
       c) edit the apache web server configuration file
 
@@ -105,7 +105,7 @@ Mac OS
             
          or you path. Is important to copy this to procced the next step
             
-         Edit the apache file
+         Edit the apache virtual host configuration file
       
            sudo /etc/apache2/extra/widget-server.conf
                
@@ -167,9 +167,11 @@ Mac OS
          For example, if your path is "/Users/joe/widget-server" you replace the arguments like this
          
             DocumentRoot "/Users/joe/widget-server/html"
-            ScriptAlias /bin/ /Users/joe//widget-server/cgi-bin/
+            ScriptAlias /bin/ /Users/joe/widget-server/cgi-bin/
             ServerPath /Users/joe/widget-server/html
             <Directory /Users/joe/widget-server/ >
+            
+         Remeber to do it in both definitios of port 80 and 443.
          
          The arguments
          
@@ -178,14 +180,14 @@ Mac OS
 
          Can be the name you want, but need to match with your definition in /etc/hosts.
          
-         Now if you note the definition of the port 443, we need to have a SSL certificate to work with Ecamm Live, OBS only accet valid SSL certificates emited by a CA, thas why use the port (80).
+         Now, if you note, the definition of the port 443, we need to have a SSL certificate to work with Ecamm Live, OBS only accet valid SSL certificates emited by a CA, thas why use the port (80).
          
          To generate a self signed SSL certificate we need to create a directory and the certificates:
          
             sudo mkdir /etc/apache2/ssl
             sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/apache2/ssl/widget.key -out /etc/apache2/ssl/widget.crt    
 
-         The name of certificates must match with the definitions on "SSLCertificateFile" and"SSLCertificateKeyFile" on the apache config file.
+         The name of certificates must match with the definitions on "__SSLCertificateFile__" and "__SSLCertificateKeyFile__" on the apache config file.
          
 
 To-do
