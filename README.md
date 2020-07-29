@@ -35,46 +35,42 @@
          
       Open the Terminal application and put:
          
-         ```
-         xcode-select --install
-         ```
+         ```xcode-select --install```
             
       If are already instaled you see this message:
          
-         ```
-         xcode-select: error: command line tools are already installed, use __Software Update__ to install updates
-         ```
+         ```xcode-select: error: command line tools are already installed, use __Software Update__ to install updates```
             
       If are not previously installed, the process ask your admin passsword and proceed the installation.
    
    2) download the project repository to your disk in your prefered path
       
-          ```
+```
           git clone https://github.com/elpop/widget-server.git
-          ```
+```
          
       When the clone process end, you see a new directory called __widget-server__
          
    3) Enter in the directory and copy the configurations files and customize
       
-         ```
+```
          cd widget-server
          sudo cp etc/widget-server.conf /etc/.
          sudo cp etc/apache2/widget-server.conf /etc/apache2/extra/.
-         ```
+```
          
    4) Customize the configuration files
    
       a) for delivery your widget in your local machine (the same with your striming program),
          you need to add the name of the webserver in /etc/hosts
          
-            ```
+```
             sudo vim /etc/hosts
-            ```
+```
             
          You see something like this:
          
-            ```
+```
             ##
             # Host Database
             #
@@ -84,19 +80,19 @@
             127.0.0.1	localhost widget
             255.255.255.255	broadcasthost
             ::1             localhost
-            ```
+```
             
          yoy see the line with "__127.0.0.1	localhost__" you need to append the name of your apache virtual host name, in this case "__widget__"
       
       b) edit the widget-server config file
          
-            ```
+```
             sudo vim /etc/widget-server.conf
-            ```
+```
             
          The /etc/widget-server.conf  contains the parameters of the service:
    
-            ```   
+```   
             # Widget Server Configuration File
             [db_pg]
             name = "dbi:Pg:dbname=Widgets;host=127.0.0.1"
@@ -105,7 +101,7 @@
      
             [timer]
             dbping    = 600
-            ```
+```
 
          The file is sefl explanatory. only put the name of the database replacing __Widgets__ for any name you want to use.
          
@@ -113,26 +109,26 @@
 
          Here is where the things start to be more difficult, you need to know the exactly path where you clone directory are. is easy whit this command:
          
-            ```
+```
             pwd
-            ```
+```
             
          and you see somthing like
-            ```
+```
             /Volumes/Pop-Data/pop/Devel/widget-server
-            ```
+```
             
          or you path. Is important to copy this to procced the next step
             
          Edit the apache virtual host configuration file
       
-           ```
+```
            sudo /etc/apache2/extra/widget-server.conf
-           ```
+```
                
          You see the configuration almost duplicate, this is because we use port 80 for OBS (don't like ssl auto signed certs) and the port 443 for Ecamm (don't like plain http conections).
 
-            ```
+```
             #<VirtualHost *:80>
             #        ServerName widget
             #        ServerAlias widget
@@ -183,7 +179,7 @@
                     Require all granted
                 </Directory>
             </VirtualHost>
-            ```
+```
 
          You need to replace the path on the __DocumentRoot__, __ScriptAlias__, __ServerPath__ and __Directory__ arguments with the path saved.
          
