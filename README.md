@@ -56,8 +56,27 @@ Mac OS
          sudo cp etc/apache2/widget-server.conf /etc/apache2/extra/.
          
    4) Customize the configuration files
+   
+      a) for delivery your widget in your local machine (the same with your striming program),
+         you need to add the name of the webserver in /etc/hosts
+         
+            sudo vim /etc/hosts
+            
+         You see something like this:
+         
+            ##
+            # Host Database
+            #
+            # localhost is used to configure the loopback interface
+            # when the system is booting.  Do not change this entry.
+            ##
+            127.0.0.1	localhost widget
+            255.255.255.255	broadcasthost
+            ::1             localhost
+            
+         yoy see the line with "127.0.0.1	localhost" you need to append the name of your apache virtual host name, in this case "widget"
       
-      a) edit the widget-server config file
+      b) edit the widget-server config file
          
             sudo vim /etc/widget-server.conf
             
@@ -73,6 +92,65 @@ Mac OS
             dbping    = 600
 
          The file is sefl explanatory. only put the name of the database replacing "Widgets" for any name you want to use.
+         
+      c) edit the apache web server configuration file
+      
+            sudo /etc/apache2/extra/widget-server.conf
+            
+         You see the configuration almost duplicate, this is because we use port 80 for OBS (don't like ssl auto signed certs) and the port 443 for Ecamm (don't like plain http conections).
+         
+            #<VirtualHost *:80>
+            #        ServerName widget
+            #        ServerAlias widget
+            #        Redirect permanent / https://widget/
+            #</VirtualHost>
+            
+            <VirtualHost *:80>
+                ServerName widget
+                ServerAlias widget
+                DocumentRoot "/Volumes/Pop-Data/pop/Devel/widget-server/html"
+                ErrorLog "/private/var/log/apache2/widget-server-error_log"
+                CustomLog "/private/var/log/apache2/widget-server-access_log" common
+            
+                ServerAdmin pop@cofradia.org
+                ScriptAlias /bin/ /Volumes/Pop-Data/pop/Devel/widget-server/cgi-bin/
+                ServerPath /Volumes/Pop-Data/pop/Devel/widget-server/html
+                SetEnv CONF_FILE /etc/widget-server.conf
+                # AddDefaultCharset UTF-8
+                AddDefaultCharset on
+                <Directory /Volumes/Pop-Data/pop/Devel/widget-server/ >
+                    AddHandler cgi-script .cgi .pl
+                    Options Indexes FollowSymLinks
+                    Require all granted
+                </Directory>
+            </VirtualHost>
+            
+            <VirtualHost *:443>
+                ServerName widget
+                ServerAlias widget
+                DocumentRoot "/Volumes/Pop-Data/pop/Devel/widget-server/html"
+                ErrorLog "/private/var/log/apache2/widget-server-error_log"
+                CustomLog "/private/var/log/apache2/widget-server-access_log" common
+            
+                SSLEngine on
+                SSLCipherSuite ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP:+eNULL
+                SSLCertificateFile /etc/apache2/ssl/widget.crt
+                SSLCertificateKeyFile /etc/apache2/ssl/widget.key
+            
+                ServerAdmin pop@cofradia.org
+                ScriptAlias /bin/ /Volumes/Pop-Data/pop/Devel/widget-server/cgi-bin/
+                ServerPath /Volumes/Pop-Data/pop/Devel/widget-server/html
+                SetEnv CONF_FILE /etc/widget-server.conf
+                # AddDefaultCharset UTF-8
+                AddDefaultCharset on
+                <Directory /Volumes/Pop-Data/pop/Devel/widget-server/ >
+                    AddHandler cgi-script .cgi .pl
+                    Options Indexes FollowSymLinks
+                    Require all granted
+                </Directory>
+            </VirtualHost>
+
+
     
 To-do
 
