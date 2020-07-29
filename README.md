@@ -51,7 +51,7 @@
          
    3) Enter in the directory and copy the configurations files and customize
       
-         ```cd widget-server```
+         cd widget-server
          sudo cp etc/widget-server.conf /etc/.
          sudo cp etc/apache2/widget-server.conf /etc/apache2/extra/.
          
@@ -166,17 +166,17 @@
          
          For example, if your path is __/Users/joe/widget-server__ you replace the arguments like this
          
-            DocumentRoot "__/Users/joe/widget-server__/html"
-            ScriptAlias __/bin/ /Users/joe/widget-server__/cgi-bin/
-            ServerPath __/Users/joe/widget-server__/html
-            <Directory __/Users/joe/widget-server__/ >
+            DocumentRoot "/Users/joe/widget-server/html"
+            ScriptAlias /bin/ /Users/joe/widget-server/cgi-bin/
+            ServerPath /Users/joe/widget-server/html
+            <Directory /Users/joe/widget-server/ >
             
          Remeber to do it in both definitios of port 80 and 443.
          
          The arguments
          
-            ServerName __widget__
-            ServerAlias __widget__
+            ServerName widget
+            ServerAlias widget
 
          Can be the name you want, but need to match with your definition in /etc/hosts.
          
