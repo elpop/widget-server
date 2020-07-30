@@ -335,8 +335,15 @@ You need the git program and another utilities, are available with the Xcode Com
         
         And the page display the widgets available and how to invoke, on OBS use **https** and remeber to use **https** in place of **http** when use Ecamm Live.
   
-##To-Do
+4. Postgresql database instalation.
 
+    The easy way on Mac OS is using Postgres.app, you can download and install in the following link:
+    [https://postgresapp.com](https://postgresapp.com)
+    
+    follow the install instructions and when you finish, you can create the widget's database.
+
+ 
+## To-Do
  * Documentation in progress    
     
 
