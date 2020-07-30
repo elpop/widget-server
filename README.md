@@ -69,7 +69,7 @@ I use the **vim text editor**, is available on Mac OS and any Linux flavor. If y
     sudo cp etc/widget-server.conf /etc/.  
     sudo cp etc/apache2/widget-server.conf /etc/apache2/extra/.
     ```
-
+    
 3. Postgresql database installation.
 
     The easy way on Mac OS, is using Postgres.app, you can download and install in the following link:
@@ -101,8 +101,32 @@ I use the **vim text editor**, is available on Mac OS and any Linux flavor. If y
     psql Widgets < sql/polls.sql
     psql Widgets < sql/scoreboard.sql
     ```
+
+4. Perl and CPAN
     
-4. Customize the configuration files
+    I wrote the widgets on perl ([https://www.perl.org](https://www.perl.org)) and Javascript. Any unix system has perl, also Mac OS, and we need a couple of perl libraries to work with.
+    
+    We use the root user for install the modules system wide. **you must take caution** when use the **root** user, you could damage your system if do the things wrong. 
+    
+    To install the Perl modules needed we use cpan(Comprehensive Perl Archive Network) in this way:
+    
+    ```
+    sudo su -
+    cpan
+    cpan[1]>install CGI
+    cpan[2]>install Config::Simple
+    cpan[3]>install DBI
+    cpan[4]>install DBD::Pg
+    exit
+    ```
+    
+    Each module put a verbose output and finish with "OK". In the case of the last module DBD::Pg, the installer ask for the pg_config program of the postgresql database, you need to answer this:
+    
+     ```
+     /Applications/Postgres.app/Contents/Versions/latest/bin/pg_config
+     ```   
+    
+5. Customize the configuration files
        
     * for delivery your widget in your local machine (the same with your striming program), you need to add the name of the webserver in /etc/hosts
 
@@ -371,6 +395,7 @@ I use the **vim text editor**, is available on Mac OS and any Linux flavor. If y
         And the page display the widgets available and how to invoke, on OBS use **https** and remeber to use **https** in place of **http** when use Ecamm Live.
         
 ## To-Do
- * Documentation in progress    
+
+ * Linux Documentation    
     
 
