@@ -333,9 +333,8 @@ You need the git program and another utilities, are available with the Xcode Com
         
         ![web widget test](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/web_widget.png)
         
-        And the page dispaly the widgets available and how to invoke on OBS Ecamm Live, remeber to use **https** in place of **http** when use Ecamm Live.
-
-
+        And the page display the widgets available and how to invoke, on OBS use **https** and remeber to use **https** in place of **http** when use Ecamm Live.
+  
 ##To-Do
 
  * Documentation in progress    
