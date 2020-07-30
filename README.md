@@ -50,9 +50,9 @@ You need the git program and another utilities, are available with the Xcode Com
 
 2. Download the project repository to your disk in your prefered path.
   
-  ```
-  git clone https://github.com/elpop/widget-server.git
-  ```
+    ```
+    git clone https://github.com/elpop/widget-server.git
+    ```
   
     When the clone process end, you see a new directory called widget-server.
     
@@ -66,10 +66,9 @@ You need the git program and another utilities, are available with the Xcode Com
     
 3. Customize the configuration files
 
-    I use the **vim text editor**, is available on Mac OS and any Linux flavor. If you don't have any experience with, please read this guide:
+    I use the **vim text editor**, is available on Mac OS and any Linux flavor. If you don't have any experience with, please read this guide: 
     [vim for beginners](https://computers.tutsplus.com/tutorials/vim-for-beginners--cms-21118)
-    
-      
+       
     * for delivery your widget in your local machine (the same with your striming program), you need to add the name of the webserver in /etc/hosts
 
         ```
