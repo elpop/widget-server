@@ -406,7 +406,7 @@ I use the **vim text editor**, is available on Mac OS and any Linux flavor. If y
     
 ![OBS widget 2](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/OBS_Widget_2.png)
 
-In the URL field put the widget link, in this example use ``http://widget/bin/scoreboard.pl?match\_id=3&refresh=5``
+In the URL field put the widget link, in this example use ``http://widget/bin/scoreboard.pl?match_id=3&refresh=5``
 
 ![OBS widget 3](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/OBS_Widget_3.png)
 
