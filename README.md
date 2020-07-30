@@ -128,7 +128,7 @@ You need the git program and another utilities, are available with the Xcode Com
     * Edit the apache virtual host configuration file
     
         ```
-        sudo /etc/apache2/extra/widget-server.conf
+        sudo vim /etc/apache2/extra/widget-server.conf
         ```
     
         You see the configuration almost duplicate, this is because we use port 80 for OBS (don't like ssl auto signed certs) and the port 443 for Ecamm (don't like plain http conections).
@@ -216,9 +216,25 @@ You need the git program and another utilities, are available with the Xcode Com
         sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/apache2/ssl/widget.key -out /etc/apache2/ssl/widget.crt
         ```
     
-        The name of certificates must match with the definitions on SSLCertificateFile and SSLCertificateKeyFile on the apache config file.
- 
-#To-Do
+        The name of certificates must match with the definitions on **SSLCertificateFile** and **SSLCertificateKeyFile** on the apache config file.
+        
+    * Edit the apache web server configuration files
+        
+        We need to change the Apache Web server configurations and use the admin user to do it.
+        
+        **important**: ***make a backup of the apache configuration file in case of something go wrong*** 
+        
+        ```
+        sudo cp /etc/apache2/httpd.conf /etc/apache2/httpd.conf_back
+        ```
+        
+        Then we start to edit the apache configuration file with:
+        
+        ```
+        sudo vim /etc/apache2/httpd.conf
+        ```
+
+##To-Do
 
  * Documentation in progress    
     
