@@ -15,7 +15,11 @@ See LICENSE.txt
    Apache-server to offer database based widgets to OBS, Ecamm Live or other video streaming tool
    
    Tested with OBS Studio 25.0.8 (Mac OS and Linux) and Ecamm Live 3.5.8 (Mac OS).
-
+   
+***Voting poll sample***
+![polls_demo.png](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/polls_demo.png)  
+***Scoreboard sample***
+![Scoreboard_demo.png](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/scoreboard_demo.png)
 ## Description
 
 This is a basic Web Server to offer diferent types of Widgets using data store in a database.
