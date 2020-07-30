@@ -406,7 +406,7 @@ I use the **vim text editor**, is available on Mac OS and any Linux flavor. If y
     
 ![OBS widget 2](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/OBS_Widget_2.png)
 
-In the URL field put the widget link, in this example i put **http://widget/bin/scoreboard.pl?match_id=3&refresh=5**
+In the URL field put the widget link, in this example use **http://widget/bin/scoreboard.pl?match\_id=3&refresh=5**
 ![OBS widget 3](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/OBS_Widget_3.png)
 
 And you can see the output of the widget with the info define in the Database
@@ -416,6 +416,16 @@ And you can see the output of the widget with the info define in the Database
 
 ### Ecamm Live
 
+In your Overlay panel, add a **New Widget**  
+        
+ ![Ecamm widget 1](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/Ecamm_Widget_1.png)
+ 
+ Put the display name and the Widget URL, in this example i use **https://widget/bin/voting\_poll.pl?poll\_id=2&refresh=5**, you note the use of **https** in place of **http**
+![Ecamm widget 2](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/Ecamm_Widget_2.png)
+
+And you can see the output of the widget with the info define in the Database
+
+![Ecamm widget 3](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/Ecamm_Widget_3.png)
 
         
 ## To-Do
