@@ -34,7 +34,7 @@ The info to display is stored in a Postgresql Data base ([https://www.postgresql
    
 ### Mac OS
    
-You need the git program and another utilities, are available with the Xcode Command Line Tools, I sugests install Xcode from the Apple App Store, then check if you have the command line tools.  
+You need the git program and another utilities, are available with the Xcode Command Line Tools, I suggest install Xcode from the Apple App Store, then check if you have the command line tools.  
 
 I use the **vim text editor**, is available on Mac OS and any Linux flavor. If you don't have any experience with, please read this guide: 
     [vim for beginners](https://computers.tutsplus.com/tutorials/vim-for-beginners--cms-21118)
@@ -62,7 +62,7 @@ I use the **vim text editor**, is available on Mac OS and any Linux flavor. If y
   
     When the clone process end, you see a new directory called widget-server.
     
-    Enter in the directory and copy the configurations files and customize:
+    Enter in the directory and copy the configurations files:
     
     ```
     cd widget-server  
@@ -120,7 +120,7 @@ I use the **vim text editor**, is available on Mac OS and any Linux flavor. If y
     exit
     ```
     
-    Each module put a verbose output and finish with "OK". In the case of the last module DBD::Pg, the installer ask for the pg_config program of the postgresql database, you need to answer this:
+    Each module show a verbose output and finish with "OK". In the case of the last module, **DBD::Pg**, the installer ask for the pg_config program of the postgresql database, you need to answer this:
     
      ```
      /Applications/Postgres.app/Contents/Versions/latest/bin/pg_config
@@ -393,6 +393,30 @@ I use the **vim text editor**, is available on Mac OS and any Linux flavor. If y
         ![web widget test](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/web_widget.png)
         
         And the page display the widgets available and how to invoke, on OBS use **https** and remeber to use **https** in place of **http** when use Ecamm Live.
+
+## Using The Widgets
+
+### OBS  
+    
+ In your scene, add a **Browser** source  
+        
+ ![OBS widget 1](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/OBS_Widget_1.png)
+ 
+ Put the name of your source
+    
+![OBS widget 2](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/OBS_Widget_2.png)
+
+In the URL field put the widget link, in this example i put **http://widget/bin/scoreboard.pl?match_id=3&refresh=5**
+![OBS widget 3](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/OBS_Widget_3.png)
+
+And you can see the output of the widget with the info define in the Database
+
+![OBS widget 4](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/OBS_Widget_4.png)
+
+
+### Ecamm Live
+
+
         
 ## To-Do
 
