@@ -12,19 +12,28 @@
               <div id="SquareConteiner">
                   <div id="SquareData">
                       <div id="RoundCornerTitle">Voting Poll</div>
-                      <A HREF="/bin/voting_poll.pl?poll_id=1">
-                      <pre>http://widget/bin/voting_poll.pl?poll_id=1</pre></A>
+                      <A HREF="/bin/voting_poll.pl?poll_id=1&refresh=5">
+                      <pre>http://widget/bin/voting_poll.pl?
+poll_id=1&refresh=5</pre></A>
+                      <b>poll_id</b> is the database record id declared in the table Poll<br/>
+                      <b>refresh</b> is the time in seconds to refresh the data (default 10)
                   </div>
                   <div id="SquareData">
                       <div id="RoundCornerTitle">Scoreboard</div>
-                      <A HREF="/bin/scoreboard.pl?match_id=1">
-                      <pre>http://widget/bin/scoreboard.pl?match_id=1</pre></A>
+                      <A HREF="/bin/scoreboard.pl?match_id=1&refresh=5">
+                      <pre>http://widget/bin/scoreboard.pl?
+match_id=1&refresh=5</pre></A>
+                      <b>match_id</b> is the database record id declared in the table matchs<br/>
+                      <b>refresh</b> is the time in seconds to refresh the data (default 10)
                   </div>  
                   <div id="SquareData">
                       <div id="RoundCornerTitle">Scoreboard Multiplayer</div>
-                      <A HREF="/bin/scoreboard.pl?match_id=3">
-                      <pre>http://widget/bin/scoreboard.pl?match_id=3</pre></A>
-                      (rezise window for demo)
+                      <A HREF="/bin/scoreboard.pl?match_id=3&refresh=5">
+                      <pre>http://widget/bin/scoreboard.pl?
+match_id=3&refresh=5</pre></A>
+                      This is show when is declared more than 2 teams for the match in the table matchs_teams<br/>
+                      <b>match_id</b> is the database record id declared in the table matchs<br/>
+                      <b>refresh</b> is the time in seconds to refresh the data (default 10)
                   </div>
                   <div id="SquareData">
                       <div id="RoundCornerTitle">Clock</div>
@@ -35,6 +44,8 @@
                       <div id="RoundCornerTitle">Countdown</div>
                       <A HREF="/bin/countdown.pl?seconds=10&dark=1">
                       <pre>http://widget/bin/countdown.pl?seconds=10&dark=1</pre></A>
+                      <b>seconds</b> Inital countdown in seconds (default 10)<br/>
+                      <b>dark</b> show in black color the output(default 0 - White)
                   </div>
               </div>
           </TD></TR>

@@ -37,9 +37,14 @@ Config::Simple->import_from("$ENV{CONF_FILE}", \%Config) or die Config::Simple->
 
 my $param = new CGI;
 my $match_id = $param->param('match_id');
+my $refresh_time = $param->param('refresh');
 
 unless($match_id) {
     $match_id = 1;
+}
+
+unless($refresh_time) {
+    $refresh_time = 10;
 }
 
 # Convert number to a string (v.g. 1,234)
@@ -108,7 +113,7 @@ $dbh->disconnect;
 
 print "Content-type: text/html\n\n";
 print "<HTML>\n<HEAD>\n";
-print "<META HTTP-EQUIV=\"refresh\" content=\"10\">\n";
+print "<META HTTP-EQUIV=\"refresh\" content=\"$refresh_time\">\n";
 print "<META HTTP-EQUIV=\"Pragma\" CONTENT=\"no-cache\">\n";
 print "<META HTTP-EQUIV=\"Expires\" CONTENT=\"-1\">\n";
 print "<TITLE>Scoreboard</TITLE>\n";

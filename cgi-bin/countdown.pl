@@ -37,7 +37,7 @@ my $seconds = $param->param('seconds');
 my $dark = $param->param('dark');
 
 unless($seconds) {
-    $seconds = 10;
+    $seconds = 60;
 }
 
 unless($dark) {
