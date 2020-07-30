@@ -233,6 +233,104 @@ You need the git program and another utilities, are available with the Xcode Com
         ```
         sudo vim /etc/apache2/httpd.conf
         ```
+        
+        You need to uncomment the lines (deleting the # chararcter) and leave the rest with this text:
+        
+        ```
+        #LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so
+        
+        to 
+        
+        LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so
+        ```
+        
+        ```
+        #LoadModule rewrite_module libexec/apache2/mod_rewrite.so
+        
+        to
+        
+        LoadModule rewrite_module libexec/apache2/mod_rewrite.so
+        ```
+        
+        ```
+        #LoadModule mpm_prefork_module libexec/apache2/mod_mpm_prefork.so
+        
+        to
+        
+        LoadModule mpm_prefork_module libexec/apache2/mod_mpm_prefork.so
+        ```
+        
+        ```
+        <IfModule !mpm_prefork_module>
+            #LoadModule cgid_module libexec/apache2/mod_cgid.so
+        </IfModule>
+        <IfModule mpm_prefork_module>
+            #LoadModule cgi_module libexec/apache2/mod_cgi.so
+        </IfModule>
+
+        to
+
+        <IfModule !mpm_prefork_module>
+            LoadModule cgid_module libexec/apache2/mod_cgid.so
+        </IfModule>
+        <IfModule mpm_prefork_module>
+            LoadModule cgi_module libexec/apache2/mod_cgi.so
+        </IfModule>
+        ```
+        
+        To activate the HTTPS protocol, you need to load de **ssl_module**:
+        
+        ```
+        #LoadModule ssl_module libexec/apache2/mod_ssl.so
+        
+        to
+        
+        LoadModule ssl_module libexec/apache2/mod_ssl.so
+        ```
+        
+        Locate "**# Virtual hosts**" and append like the sample:
+        
+        ```
+        # Virtual hosts
+        #Include /private/etc/apache2/extra/httpd-vhosts.conf
+        
+        to
+        
+        # Virtual hosts
+        #Include /private/etc/apache2/extra/httpd-vhosts.conf
+        Include /private/etc/apache2/extra/widget-server.conf
+        ```
+        
+        The last line is the definition of our widget-server vitual host.
+        
+        save the file and check if exists errors previously with the apache control utility:
+        
+        ```
+        sudo apachectl configtest
+        ```
+        
+        and you see something like this:
+        
+        ```
+        AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using HT-Pop.local. Set the 'ServerName' directive globally to suppress this message
+Syntax OK
+        ```
+        
+        The first is a warning, but you need to see the leyend "**Syntax OK**".
+        
+        Then use apache control to restart the service:
+        
+        ```
+        sudo apachectl restart
+        ```
+        
+        and now, go to your browser in your local machine and test with http and https puting "**http://widget/**" and "**https://widget/**"
+        
+        You must see the next screen:
+        
+        ![web widget test](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/web_widget.png)
+        
+        and the page dispaly the widgets available and how to invoke on OBS Ecamm Live, remeber to use **https** in place of **http** when use Ecamm Live.
 
 ##To-Do
 
