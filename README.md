@@ -313,7 +313,7 @@ You need the git program and another utilities, are available with the Xcode Com
         
         ```
         AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using HT-Pop.local. Set the 'ServerName' directive globally to suppress this message
-Syntax OK
+        Syntax OK
         ```
         
         The first is a warning, but you need to see the leyend "**Syntax OK**".
