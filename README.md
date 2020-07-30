@@ -65,8 +65,40 @@ You need the git program and another utilities, are available with the Xcode Com
     sudo cp etc/widget-server.conf /etc/.  
     sudo cp etc/apache2/widget-server.conf /etc/apache2/extra/.
     ```
+
+3. Postgresql database installation.
+
+    The easy way on Mac OS, is using Postgres.app, you can download and install in the following link:
+    [https://postgresapp.com](https://postgresapp.com)
     
-3. Customize the configuration files
+    Download the lastest stable release (currently PostgreSQL 12.3)
+     
+    follow the install instructions and when you finish, you can create the widget's database.
+    
+    A good tool for interact with postgresql databases is Postico ([https://eggerapps.at/postico/](https://eggerapps.at/postico/)), also available in the Apple App Store (cost about $50 USD)
+
+    Is important to put postgresql utilities in your path enviroment variable, check your .bash_profile or .zshrc and append this:
+    
+    ```
+    PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin:
+    ``` 
+
+    Exit your terminal and launch again to take the path changes.
+    
+    and now, we create the Widgets database with this command:
+    
+    ```
+    createdb -E utf8 Widgets
+    ```
+    
+    And back to your **widget-server** directory and create the tables and samples for the widgets:
+    
+    ```
+    psql Widgets < sql/polls.sql
+    psql Widgets < sql/scoreboard.sql
+    ```
+    
+4. Customize the configuration files
 
     I use the **vim text editor**, is available on Mac OS and any Linux flavor. If you don't have any experience with, please read this guide: 
     [vim for beginners](https://computers.tutsplus.com/tutorials/vim-for-beginners--cms-21118)
@@ -336,17 +368,7 @@ You need the git program and another utilities, are available with the Xcode Com
         ![web widget test](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/web_widget.png)
         
         And the page display the widgets available and how to invoke, on OBS use **https** and remeber to use **https** in place of **http** when use Ecamm Live.
-  
-4. Postgresql database instalation.
-
-    The easy way on Mac OS is using Postgres.app, you can download and install in the following link:
-    [https://postgresapp.com](https://postgresapp.com)
-    
-    follow the install instructions and when you finish, you can create the widget's database.
-    
-    
-
- 
+        
 ## To-Do
  * Documentation in progress    
     
