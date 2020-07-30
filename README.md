@@ -64,7 +64,11 @@ You need the git program and another utilities, are available with the Xcode Com
     sudo cp etc/apache2/widget-server.conf /etc/apache2/extra/.
     ```
     
-3. Customize the configuration files  
+3. Customize the configuration files
+
+    I use the **vim text editor**, is available on Mac OS and any Linux flavor. If you don't have any experience with, please read this guide:
+    [vim for beginners](https://computers.tutsplus.com/tutorials/vim-for-beginners--cms-21118)
+    
       
     * for delivery your widget in your local machine (the same with your striming program), you need to add the name of the webserver in /etc/hosts
 
@@ -330,7 +334,8 @@ You need the git program and another utilities, are available with the Xcode Com
         
         ![web widget test](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/web_widget.png)
         
-        and the page dispaly the widgets available and how to invoke on OBS Ecamm Live, remeber to use **https** in place of **http** when use Ecamm Live.
+        And the page dispaly the widgets available and how to invoke on OBS Ecamm Live, remeber to use **https** in place of **http** when use Ecamm Live.
+
 
 ##To-Do
 
