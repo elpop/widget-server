@@ -132,6 +132,18 @@ IMG.scoreboard {
          font-size:72pt;
 	     font-weight: bold; }
 
+#Scoreboard.MultiTime {
+         width: 210px;
+         hight: 200px;
+         text-align: center;
+         margin: 0px;
+         position: absolute;
+         left: 210px;
+         top: 75px;
+         font-family:arial;
+         font-size:28pt;
+	     font-weight: bold; }
+
 #Match.Multi {
          color: #ffffff;
          text-align: center;
