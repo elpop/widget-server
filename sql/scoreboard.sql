@@ -63,7 +63,6 @@ insert into player (name, color, logo) values('Hufflepuff','FEF075','Hufflepuff.
 insert into match_player(match_id, player_id) values(currval('match_seq'),currval('player_seq'));
 insert into score (match_player_id,points) values(currval('match_player_seq'),12);
 
-
 insert into match (name, place) values('Hogwarts Quidditch semifinals','Dark Lake');
 insert into player (name, color, logo) values('Ravenclaw','252B8D', 'Ravenclaw.jpg');
 insert into match_player(match_id, player_id) values(currval('match_seq'),currval('player_seq'));
