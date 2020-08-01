@@ -269,7 +269,7 @@ I use the **vim text editor**, is available on Mac OS and any Linux flavor. If y
         
         Can be the name you want, but need to match with your definition in /etc/hosts.
 
-        Now, if you note, the definition of the port 443, we need to have a SSL certificate to work with Ecamm Live, OBS only accet valid SSL certificates emited by a CA, thas why use the port (80).
+        Now, if you note, the definition of the port 443, we need to have a SSL certificate to work with Ecamm Live, OBS only accept valid SSL certificates emited by a CA, thas why use the port (80).
 
         To generate a self signed SSL certificate we need to create a directory and the certificates:
     
