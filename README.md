@@ -1,34 +1,20 @@
 # Widget Server
 
-## Author
-
-   Fernando Romo (pop@cofradia.org)
-
-## License
-```
-GNU GENERAL PUBLIC LICENSE Version 3
-https://www.gnu.org/licenses/gpl-3.0.en.html
-See LICENSE.txt
-``` 
-## Abstract
-
-   Apache-server to offer database based widgets to OBS, Ecamm Live or other video streaming tool
-   
-   Tested with OBS Studio 25.0.8 (Mac OS and Linux) and Ecamm Live 3.5.8 (Mac OS).
+## Description
    
 ***Voting poll sample***
 ![polls_demo.png](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/polls_demo.png)  
 
 ***Scoreboard sample***
 ![Scoreboard_demo.png](https://raw.githubusercontent.com/elpop/widget-server/master/html/images/Demo/scoreboard_demo.png)
-    
-## Description
 
 This is a basic Web Server to offer diferent types of Widgets using data store in a database.
    
 Is design to work with streaming programs like OBS ([https://obsproject.com]()) and Ecamm Live ([https://www.ecamm.com]()).
    
 The info to display is stored in a Postgresql Data base ([https://www.postgresql.org]()), could be another database like MariaDB, but i prefer Postgresql.
+
+Tested with OBS Studio 25.0.8 (Mac OS and Linux) and Ecamm Live 3.5.8 (Mac OS).
    
 ## Install and configuration
    
@@ -433,4 +419,14 @@ And you can see the output of the widget with the info define in the Database
  * Web admin from database widgets
  * Linux Documentation
     
+## Author
+
+   Fernando Romo (pop@cofradia.org)
+
+## License
+```
+GNU GENERAL PUBLIC LICENSE Version 3
+https://www.gnu.org/licenses/gpl-3.0.en.html
+See LICENSE.txt
+``` 
 
